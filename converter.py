@@ -194,8 +194,8 @@ class VideoToSlides:
             frame = resize_frame(frame, self.cfg.max_width)
             number = len(accepted) + 1
             path = image_dir / f"slide_{number:04d}.png"
-            if not cv2.imwrite(str(path), frame):
-                raise RuntimeError(f"이미지 저장 실패: {path}")
+            rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            Image.fromarray(rgb).save(str(path), format="PNG")
 
             accepted.append((timestamp, path))
             accepted_hashes.append(h)
