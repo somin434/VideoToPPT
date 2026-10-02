@@ -1,0 +1,5 @@
+opencv-python>=4.10
+numpy>=1.26
+Pillow>=10.0
+python-pptx>=1.0
+pyinstaller>=6.10
